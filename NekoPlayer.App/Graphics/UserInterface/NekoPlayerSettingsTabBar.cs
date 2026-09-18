@@ -40,7 +40,7 @@ namespace NekoPlayer.App.Graphics.UserInterface
                 {
                     AutoSizeAxes = Axes.Both,
                     Margin = new MarginPadding(4),
-                    Direction = FillDirection.Vertical,
+                    Direction = FillDirection.Horizontal,
                     Children = new Drawable[]
                     {
                         new Button

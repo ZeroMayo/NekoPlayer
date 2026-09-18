@@ -438,10 +438,6 @@ namespace NekoPlayer.App.Overlays.Containers
                                         {
                                             RelativeSizeAxes = Axes.Both,
                                             ScrollbarVisible = false,
-                                            Padding = new MarginPadding
-                                            {
-                                                Right = 48,
-                                            },
                                             Children = new Drawable[]
                                             {
                                                 new FillFlowContainer {
@@ -452,7 +448,7 @@ namespace NekoPlayer.App.Overlays.Containers
                                                     Padding = new MarginPadding
                                                     {
                                                         Top = 56,
-                                                        Bottom = 8,
+                                                        Bottom = 48 + 24,
                                                     },
                                                     Children = new Drawable[] {
                                                         new ProjectYomiSpriteText
@@ -1175,8 +1171,8 @@ namespace NekoPlayer.App.Overlays.Containers
                                 },
                                 settingsTabBar = new NekoPlayerSettingsTabBar
                                 {
-                                    Origin = Anchor.CentreRight,
-                                    Anchor = Anchor.CentreRight,
+                                    Origin = Anchor.BottomCentre,
+                                    Anchor = Anchor.BottomCentre,
                                     Margin = new MarginPadding(16),
                                 }
                     }
