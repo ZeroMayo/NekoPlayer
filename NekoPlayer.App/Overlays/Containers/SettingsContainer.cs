@@ -411,7 +411,7 @@ namespace NekoPlayer.App.Overlays.Containers
 
             discordRichPresence = appConfig.GetBindable<DiscordRichPresenceMode>(NekoPlayerSetting.DiscordRichPresence);
 
-            Size = new Vector2(0.6f, 1f);
+            Size = new Vector2(0.34f, 1f);
             RelativeSizeAxes = Axes.Both;
             CornerRadius = new CornersInfo(NekoPlayerApp.UI_CORNER_RADIUS, NekoPlayerApp.UI_CORNER_RADIUS, 0, 0);
             Masking = true;
