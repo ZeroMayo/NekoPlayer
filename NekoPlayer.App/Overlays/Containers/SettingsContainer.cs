@@ -1140,6 +1140,15 @@ namespace NekoPlayer.App.Overlays.Containers
                                     Colour = ColourInfo.GradientVertical(overlayColourProvider.Background5, overlayColourProvider.Background5.Opacity(0)),
                                     Height = 76,
                                 },
+                                new Box
+                                {
+                                    Name = "masking of overlay",
+                                    RelativeSizeAxes = Axes.X,
+                                    Anchor = Anchor.BottomLeft,
+                                    Origin = Anchor.BottomLeft,
+                                    Colour = ColourInfo.GradientVertical(overlayColourProvider.Background5.Opacity(0), overlayColourProvider.Background5),
+                                    Height = 76,
+                                },
                                 new ProjectYomiSpriteText
                                 {
                                     Origin = Anchor.TopCentre,
