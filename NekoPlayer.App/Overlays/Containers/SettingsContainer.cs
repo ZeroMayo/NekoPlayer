@@ -1140,8 +1140,8 @@ namespace NekoPlayer.App.Overlays.Containers
                                 {
                                     Name = "masking of overlay",
                                     RelativeSizeAxes = Axes.X,
-                                    Anchor = Anchor.BottomLeft,
-                                    Origin = Anchor.BottomLeft,
+                                    Anchor = Anchor.BottomCentre,
+                                    Origin = Anchor.BottomCentre,
                                     Colour = ColourInfo.GradientVertical(overlayColourProvider.Background5.Opacity(0), overlayColourProvider.Background5),
                                     Height = 76,
                                 },
