@@ -159,7 +159,7 @@ namespace NekoPlayer.App.Graphics.UserInterface
                         Origin = Anchor.Centre,
                         Colour = AccentColour,
                         RelativePositionAxes = Axes.X,
-                        OnDoubleClicked = () => ResetToDefault.Invoke(),
+                        //OnDoubleClicked = () => ResetToDefault.Invoke(),
                     },
                 },
             };
