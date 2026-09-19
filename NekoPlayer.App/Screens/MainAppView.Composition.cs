@@ -1347,6 +1347,7 @@ namespace NekoPlayer.App.Screens
                                                     Texture = textures.Get(@"speaki"),
                                                     Anchor = Anchor.BottomLeft,
                                                     Origin = Anchor.BottomLeft,
+                                                    Margin = new MarginPadding { Left = 35, Bottom = 56 },
                                                 },
                                             }
                                         }
