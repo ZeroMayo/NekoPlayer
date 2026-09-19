@@ -1250,14 +1250,14 @@ namespace NekoPlayer.App.Screens
                                 },
                             }
                         },
-                        commentsContainer = new BottomOverlayContainer
+                        commentsContainer = new SideOverlayContainer
                         {
-                            Size = new Vector2(0.7f),
+                            Size = new Vector2(0.45f, 1f),
                             RelativeSizeAxes = Axes.Both,
-                            CornerRadius = new CornersInfo(NekoPlayerApp.UI_CORNER_RADIUS, 0, NekoPlayerApp.UI_CORNER_RADIUS, 0),
+                            CornerRadius = new CornersInfo(NekoPlayerApp.UI_CORNER_RADIUS, NekoPlayerApp.UI_CORNER_RADIUS, 0, 0),
                             Masking = true,
-                            Origin = Anchor.BottomCentre,
-                            Anchor = Anchor.BottomCentre,
+                            Origin = Anchor.CentreRight,
+                            Anchor = Anchor.CentreRight,
                             Children = new Drawable[]
                             {
                                 new OverlayBackground
@@ -1385,8 +1385,8 @@ namespace NekoPlayer.App.Screens
                                 },
                                 commentsContainerTitle = new ProjectYomiSpriteText
                                 {
-                                    Origin = Anchor.TopCentre,
-                                    Anchor = Anchor.TopCentre,
+                                    Origin = Anchor.TopLeft,
+                                    Anchor = Anchor.TopLeft,
                                     Text = NekoPlayerStrings.Comments("0"),
                                     Margin = new MarginPadding(16),
                                     Font = NekoPlayerApp.DefaultFont.With(size: 30, weight: "ExtraBold"),
@@ -1416,7 +1416,7 @@ namespace NekoPlayer.App.Screens
                                     Anchor = Anchor.BottomCentre,
                                     Origin = Anchor.BottomCentre,
                                     RelativeSizeAxes = Axes.X,
-                                    Size = new Vector2(0.55f, 1f),
+                                    Size = new Vector2(0.95f, 1f),
                                     Height = 45,
                                     Children = new Drawable[]
                                     {
