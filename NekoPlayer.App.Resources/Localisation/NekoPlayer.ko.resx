@@ -779,7 +779,7 @@
     <value>번역 중...</value>
   </data>
   <data name="video_metadata_desc_with_likecount" xml:space="preserve">
-    <value>{0} • 좋아요 {1}개  • 조회수 {2}회 • {3}</value>
+    <value>{0} • 좋아요 {1}개 • 조회수 {2}회 • {3}</value>
   </data>
   <data name="show_video_metadata_on_window_title" xml:space="preserve">
     <value>창 제목에 동영상 메타데이터 표시</value>
