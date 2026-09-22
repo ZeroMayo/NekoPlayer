@@ -1,12 +1,12 @@
 **English** | [한국어](README_ko.md)
 
 <h1 align="center">NekoPlayer</h1>
-<p align="center"><img width="250" alt="NekoPlayer Logo" src="assets/NekoPlayer_LiquidGlass_Remake.png"></p>
+<p align="center"><img width="250" alt="NekoPlayer Logo" src="assets/NekoPlayer_Icon_20260922.png"></p>
 <p align="center">A new era of YouTube Video Player with a focus on design and creativity.</p>
 <p align="center">Some resources(samples) in this app are using <a href="https://github.com/ppy/osu-resources">ppy/osu-resources</a>.</p>
 
 <p align="center">
-<a href="https://github.com/ZeroMayo/ZeroMayo/blob/main/docs/project-status.md"><img src="https://img.shields.io/badge/status-maintenance-ffd700.svg" alt="Status"></a>
+<a href="https://github.com/ZeroMayo/ZeroMayo/blob/main/docs/project-status.md"><img src="https://img.shields.io/badge/status-active-47c219.svg" alt="Status"></a>
 <a href="https://github.com/ZeroMayo/NekoPlayer/actions/workflows/ci.yml"><img src="https://github.com/ZeroMayo/NekoPlayer/actions/workflows/ci.yml/badge.svg?branch=master&event=push" alt="Build status"></a>
 <a href="https://github.com/ZeroMayo/NekoPlayer/releases/latest"><img src="https://img.shields.io/github/release/ZeroMayo/NekoPlayer.svg" alt="GitHub release"></a>
 <img src="https://img.shields.io/badge/made_in-korea-0F64CD.svg?labelColor=CD2E3A" alt="Made In Korea">
