@@ -222,6 +222,9 @@ namespace NekoPlayer.App.Graphics.Caption
                     case CaptionFonts.OwnglyphYuntaeng:
                         textCreationParameters = t => t.Font = NekoPlayerApp.Fonts.OwnglyphYuntaeng.With(size: 24);
                         break;
+                    case CaptionFonts.GoogleSansFlexRounded:
+                        textCreationParameters = t => t.Font = NekoPlayerApp.Fonts.GoogleSansFlexRounded.With(size: 24);
+                        break;
                     default:
                         textCreationParameters = t => t.Font = NekoPlayerApp.Fonts.GoogleSansFlex.With(size: 24);
                         break;
@@ -397,6 +400,8 @@ namespace NekoPlayer.App.Graphics.Caption
                     return NekoPlayerApp.Fonts.OwnglyphDaisy.With(size: size);
                 case CaptionFonts.OwnglyphYuntaeng:
                     return NekoPlayerApp.Fonts.OwnglyphYuntaeng.With(size: size);
+                case CaptionFonts.GoogleSansFlexRounded:
+                    return NekoPlayerApp.Fonts.GoogleSansFlexRounded.With(size: size);
                 default:
                     return NekoPlayerApp.Fonts.GoogleSansFlex.With(size: size);
             }

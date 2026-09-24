@@ -67,6 +67,7 @@ namespace NekoPlayer.App
             public static FontUsage Roboto = FontUsage.Default.With("Roboto", 16, "Regular");
             public static FontUsage OwnglyphDaisy = FontUsage.Default.With("OwnglyphDaisy", 16);
             public static FontUsage OwnglyphYuntaeng = FontUsage.Default.With("OwnglyphYuntaeng", 16);
+            public static FontUsage GoogleSansFlexRounded = FontUsage.Default.With("GoogleSansFlexRounded", 16, "Regular");
         }
 
         private BindableNumber<double> sampleVolume = null!;
@@ -244,6 +245,11 @@ namespace NekoPlayer.App
                 case UIFont.Roboto:
                 {
                     fontName = @"Roboto";
+                    break;
+                }
+                case UIFont.GoogleSansFlexRounded:
+                {
+                    fontName = @"GoogleSansFlexRounded";
                     break;
                 }
             }

@@ -363,6 +363,11 @@ namespace NekoPlayer.App.Graphics.UserInterfaceV2
                             label.Font = NekoPlayerApp.Fonts.OwnglyphYuntaeng;
                             break;
                         }
+                        case CaptionFonts.GoogleSansFlexRounded:
+                        {
+                            label.Font = NekoPlayerApp.Fonts.GoogleSansFlexRounded;
+                            break;
+                        }
                     }
                 }, true);
 

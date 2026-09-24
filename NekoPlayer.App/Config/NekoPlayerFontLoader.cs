@@ -44,7 +44,7 @@ namespace NekoPlayer.App.Config
                         { @"ROND", 100 },
                     },
                 },
-                @"GoogleSansFlex-Regular");
+                @"GoogleSansFlexRounded-Regular");
             googleSansFlex.AddInstance(
                 new FontVariation
                 {
@@ -56,7 +56,7 @@ namespace NekoPlayer.App.Config
                         { @"ROND", 100 },
                     },
                 },
-                @"GoogleSansFlex-Black");
+                @"GoogleSansFlexRounded-Black");
             googleSansFlex.AddInstance(
                 new FontVariation
                 {
@@ -68,7 +68,7 @@ namespace NekoPlayer.App.Config
                         { @"ROND", 100 },
                     },
                 },
-                @"GoogleSansFlex-ExtraBold");
+                @"GoogleSansFlexRounded-ExtraBold");
             googleSansFlex.AddInstance(
                 new FontVariation
                 {
@@ -80,7 +80,7 @@ namespace NekoPlayer.App.Config
                         { @"ROND", 100 },
                     },
                 },
-                @"GoogleSansFlex-Bold");
+                @"GoogleSansFlexRounded-Bold");
             googleSansFlex.AddInstance(
                 new FontVariation
                 {
@@ -92,7 +92,7 @@ namespace NekoPlayer.App.Config
                         { @"ROND", 100 },
                     },
                 },
-                @"GoogleSansFlex-SemiBold");
+                @"GoogleSansFlexRounded-SemiBold");
             googleSansFlex.AddInstance(
                 new FontVariation
                 {
@@ -102,6 +102,73 @@ namespace NekoPlayer.App.Config
                         { @"wght", 300 },
                         { @"wdth", 100 },
                         { @"ROND", 100 },
+                    },
+                },
+                @"GoogleSansFlexRounded-Light");
+
+            googleSansFlex.AddInstance(
+                new FontVariation
+                {
+                    Axes = new Dictionary<string, double>
+                    {
+                        { @"opsz", 144 },
+                        { @"wght", 400 },
+                        { @"wdth", 100 },
+                    },
+                },
+                @"GoogleSansFlex-Regular");
+            googleSansFlex.AddInstance(
+                new FontVariation
+                {
+                    Axes = new Dictionary<string, double>
+                    {
+                        { @"opsz", 144 },
+                        { @"wght", 900 },
+                        { @"wdth", 100 },
+                    },
+                },
+                @"GoogleSansFlex-Black");
+            googleSansFlex.AddInstance(
+                new FontVariation
+                {
+                    Axes = new Dictionary<string, double>
+                    {
+                        { @"opsz", 144 },
+                        { @"wght", 800 },
+                        { @"wdth", 100 },
+                    },
+                },
+                @"GoogleSansFlex-ExtraBold");
+            googleSansFlex.AddInstance(
+                new FontVariation
+                {
+                    Axes = new Dictionary<string, double>
+                    {
+                        { @"opsz", 144 },
+                        { @"wght", 700 },
+                        { @"wdth", 100 },
+                    },
+                },
+                @"GoogleSansFlex-Bold");
+            googleSansFlex.AddInstance(
+                new FontVariation
+                {
+                    Axes = new Dictionary<string, double>
+                    {
+                        { @"opsz", 144 },
+                        { @"wght", 600 },
+                        { @"wdth", 100 },
+                    },
+                },
+                @"GoogleSansFlex-SemiBold");
+            googleSansFlex.AddInstance(
+                new FontVariation
+                {
+                    Axes = new Dictionary<string, double>
+                    {
+                        { @"opsz", 144 },
+                        { @"wght", 300 },
+                        { @"wdth", 100 },
                     },
                 },
                 @"GoogleSansFlex-Light");

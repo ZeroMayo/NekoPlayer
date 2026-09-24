@@ -183,6 +183,11 @@ namespace NekoPlayer.App.Graphics.Caption
                         textCreationParameters = spriteText => spriteText.Font = NekoPlayerApp.Fonts.OwnglyphYuntaeng.With(size: 24);
                         break;
                     }
+                    case CaptionFonts.GoogleSansFlexRounded:
+                    {
+                        textCreationParameters = spriteText => spriteText.Font = NekoPlayerApp.Fonts.GoogleSansFlexRounded.With(size: 24);
+                        break;
+                    }
                 }
                 RefreshFont();
             }, true);
