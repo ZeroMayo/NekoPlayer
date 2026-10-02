@@ -277,7 +277,7 @@ namespace NekoPlayer.App.Graphics.UserInterface
             base.OnFocusLost(e);
         }
 
-        protected override Drawable GetDrawableCharacter(Grapheme c) => new FallingDownContainer
+        protected override Drawable GetDrawableCharacter(Grapheme c) => new NekoPlayerFallingDownContainer
         {
             AutoSizeAxes = Axes.Both,
             Child = new ProjectYomiSpriteText { Text = c.ToString(), Font = NekoPlayerApp.DefaultFont.With(size: FontSize) },
