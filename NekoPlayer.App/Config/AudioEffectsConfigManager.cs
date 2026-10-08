@@ -71,6 +71,7 @@ namespace NekoPlayer.App.Config
             new TrackedSetting<bool>(AudioEffectsSetting.DistortionEnabled, v => new SettingDescription(v, NekoPlayerStrings.DistortionEffect, v == true ? NekoPlayerStrings.Enabled.ToLower() : NekoPlayerStrings.Disabled.ToLower(), "Shift+F4")),
             new TrackedSetting<bool>(AudioEffectsSetting.KaraokeEnabled, v => new SettingDescription(v, NekoPlayerStrings.KaraokeMode, v == true ? NekoPlayerStrings.Enabled.ToLower() : NekoPlayerStrings.Disabled.ToLower(), "Shift+F5")),
             new TrackedSetting<bool>(AudioEffectsSetting.ChorusEnabled, v => new SettingDescription(v, NekoPlayerStrings.ChorusEffect, v == true ? NekoPlayerStrings.Enabled.ToLower() : NekoPlayerStrings.Disabled.ToLower(), "Shift+F6")),
+            new TrackedSetting<bool>(AudioEffectsSetting.EightBitEffectEnabled, v => new SettingDescription(v, NekoPlayerStrings.EightBitEffectEnabled, v == true ? NekoPlayerStrings.Enabled.ToLower() : NekoPlayerStrings.Disabled.ToLower(), "Shift+F7")),
         };
     }
 
