@@ -745,23 +745,31 @@ namespace NekoPlayer.App
 
         private unsafe void KaraokeDsp(int handle, int channel, IntPtr buffer, int length, IntPtr user)
         {
-            int sampleCount = length / 2;
-            short[] samples = new short[sampleCount];
+            int sampleCount = length / sizeof(float);
+            float[] samples = new float[sampleCount];
+
             Marshal.Copy(buffer, samples, 0, sampleCount);
 
             for (int i = 0; i < sampleCount; i += 2)
             {
-                short left = samples[i];
-                short right = samples[i + 1];
+                float left = samples[i];
+                float right = samples[i + 1];
 
                 // 보컬이 제거된 반주 소리 (L-R 연산)
-                short karaokeSample = (short)((left - right) / 2);
+                float karaokeSample = (left - right) * 0.5f;
 
-                // ⚠️ 볼륨 믹싱 로직
-                // VocalVolume이 1.0이면 원본 소리(left/right) 출력
-                // VocalVolume이 0.0이면 보컬 제거 소리(karaokeSample) 출력
-                samples[i] = (short)(left * KaraokeVocalVolume.Value + karaokeSample * (1f - KaraokeVocalVolume.Value));
-                samples[i + 1] = (short)(right * KaraokeVocalVolume.Value + karaokeSample * (1f - KaraokeVocalVolume.Value));
+                // VocalVolume이 1.0이면 원본 소리
+                // VocalVolume이 0.0이면 보컬 제거 소리
+                float vocalVolume = KaraokeVocalVolume.Value;
+                float karaokeVolume = 1.0f - vocalVolume;
+
+                samples[i] =
+                    left * vocalVolume +
+                    karaokeSample * karaokeVolume;
+
+                samples[i + 1] =
+                    right * vocalVolume +
+                    karaokeSample * karaokeVolume;
             }
 
             Marshal.Copy(samples, 0, buffer, sampleCount);
