@@ -55,7 +55,7 @@ namespace NekoPlayer.App.Config
             SetDefault(AudioEffectsSetting.ChorusRate, 200f, 0f, 1000f, 1f);
 
             SetDefault(AudioEffectsSetting.EightBitEffectEnabled, false);
-            SetDefault(AudioEffectsSetting.EightBitEffectBitDepth, 8, 2, 8, 1);
+            SetDefault(AudioEffectsSetting.EightBitEffectBitDepth, 8, 4, 8, 1);
             SetDefault(AudioEffectsSetting.EightBitEffectDownsampleRatio, 0.25f, 0.1f, 1f, 0.01f);
         }
 
