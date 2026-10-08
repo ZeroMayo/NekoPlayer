@@ -53,6 +53,10 @@ namespace NekoPlayer.App.Config
             SetDefault(AudioEffectsSetting.ChorusMinSweep, 1f, 0f, 6000f, 1f);
             SetDefault(AudioEffectsSetting.ChorusMaxSweep, 400f, 0f, 6000f, 1f);
             SetDefault(AudioEffectsSetting.ChorusRate, 200f, 0f, 1000f, 1f);
+
+            SetDefault(AudioEffectsSetting.EightBitEffectEnabled, false);
+            SetDefault(AudioEffectsSetting.EightBitEffectBitDepth, 8, 2, 8, 1);
+            SetDefault(AudioEffectsSetting.EightBitEffectDownsampleRatio, 0.25f, 0.1f, 1f, 0.01f);
         }
 
         public AudioEffectsConfigManager(Storage storage, IDictionary<AudioEffectsSetting, object> defaultOverrides = null) : base(storage, defaultOverrides)
@@ -107,5 +111,10 @@ namespace NekoPlayer.App.Config
         ChorusMinSweep,
         ChorusMaxSweep,
         ChorusRate,
+
+        //8-bit
+        EightBitEffectEnabled,
+        EightBitEffectBitDepth,
+        EightBitEffectDownsampleRatio,
     }
 }

@@ -204,8 +204,8 @@ namespace NekoPlayer.App.Screens
 #nullable disable
 
         //effects
-        private Bindable<bool> reverbEnabled, rotateEnabled, echoEnabled, distortionEnabled, karaokeEnabled, chorusEnabled;
-        private FillFlowContainer reverbSettings, rotateSettings, echoSettings, distortionSettings, karaokeSettings, chorusSettings;
+        private Bindable<bool> reverbEnabled, rotateEnabled, echoEnabled, distortionEnabled, karaokeEnabled, chorusEnabled, eightBitEnabled;
+        private FillFlowContainer reverbSettings, rotateSettings, echoSettings, distortionSettings, karaokeSettings, chorusSettings, eightBitSettings;
 
         private Bindable<bool> repeat = new Bindable<bool>();
         private Bindable<bool> alwaysShowControl = new Bindable<bool>();

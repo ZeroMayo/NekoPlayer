@@ -118,6 +118,7 @@ namespace NekoPlayer.App.Screens
             distortionEnabled = audioEffectsConfig.GetBindable<bool>(AudioEffectsSetting.DistortionEnabled);
             karaokeEnabled = audioEffectsConfig.GetBindable<bool>(AudioEffectsSetting.KaraokeEnabled);
             chorusEnabled = audioEffectsConfig.GetBindable<bool>(AudioEffectsSetting.ChorusEnabled);
+            eightBitEnabled = audioEffectsConfig.GetBindable<bool>(AudioEffectsSetting.EightBitEffectEnabled);
 
             videoMetadataDisplayAlignment = appConfig.GetBindable<VideoMetadataDisplayAlignment>(NekoPlayerSetting.VideoMetadataDisplayAlignment);
 
@@ -2328,6 +2329,29 @@ namespace NekoPlayer.App.Screens
                                                                 }),
                                                             }
                                                         },
+                                                        new SettingsItemV2(new FormCheckBox
+                                                        {
+                                                            Caption = NekoPlayerStrings.EightBitEffectEnabled,
+                                                            Current = eightBitEnabled,
+                                                            Hotkey = new Hotkey(GlobalAction.ToggleEightBitEffect),
+                                                        }),
+                                                        eightBitSettings = new FillFlowContainer
+                                                        {
+                                                            Direction = FillDirection.Vertical,
+                                                            RelativeSizeAxes = Axes.X,
+                                                            AutoSizeAxes = Axes.Y,
+                                                            Masking = true,
+                                                            Spacing = new Vector2(0, 4),
+                                                            Children = new Drawable[]
+                                                            {
+                                                                new SettingsItemV2(new FormSliderBar<float>
+                                                                {
+                                                                    Caption = NekoPlayerStrings.BitDepth,
+                                                                    Current = audioEffectsConfig.GetBindable<float>(AudioEffectsSetting.EightBitEffectBitDepth),
+                                                                    LabelFormat = f => $"{f} bits",
+                                                                }),
+                                                            }
+                                                        },
                                                     }
                                                 }
                                             }
@@ -3685,6 +3709,15 @@ namespace NekoPlayer.App.Screens
 
                 updateAudioEffectsVisibility();
             });
+
+            eightBitEnabled.BindValueChanged(_ =>
+            {
+                eightBitSettings.ClearTransforms();
+                eightBitSettings.AutoSizeDuration = 400;
+                eightBitSettings.AutoSizeEasing = Easing.OutQuint;
+
+                updateAudioEffectsVisibility();
+            });
             updateAudioEffectsVisibility();
 
             videoProgress.BindValueChanged(seek =>
@@ -3749,6 +3782,12 @@ namespace NekoPlayer.App.Screens
                         chorusSettings.ResizeHeightTo(0, 400, Easing.OutQuint);
 
                     chorusSettings.AutoSizeAxes = chorusEnabled.Value != false ? Axes.Y : Axes.None;
+
+                    //8-bit
+                    if (eightBitEnabled.Value == false)
+                        eightBitSettings.ResizeHeightTo(0, 400, Easing.OutQuint);
+
+                    eightBitSettings.AutoSizeAxes = eightBitEnabled.Value != false ? Axes.Y : Axes.None;
                 }
                 catch
                 {
