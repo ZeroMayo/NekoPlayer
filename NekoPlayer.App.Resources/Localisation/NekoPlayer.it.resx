@@ -913,7 +913,7 @@
   <data name="downsample_ratio" xml:space="preserve">
     <value>Rapporto di abbassamento</value>
   </data>
-  <data name="vertical_sync" xml:space="preserve">
+  <data name="vertical_sync_vrr" xml:space="preserve">
     <value>VSync (VRR bassa latenza)</value>
   </data>
 </root>

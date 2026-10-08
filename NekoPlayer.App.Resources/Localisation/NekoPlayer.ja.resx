@@ -914,7 +914,7 @@ On にすることを推奨します。問題が発生している場合のみ O
   <data name="downsample_ratio" xml:space="preserve">
     <value>ダウンサンプリング比率</value>
   </data>
-  <data name="vertical_sync" xml:space="preserve">
+  <data name="vertical_sync_vrr" xml:space="preserve">
     <value>VSync（VRR低遅延）</value>
   </data>
 </root>
