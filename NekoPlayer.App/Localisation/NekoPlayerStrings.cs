@@ -1417,6 +1417,26 @@ namespace NekoPlayer.App.Localisation
         /// </summary>
         public static LocalisableString KaraokeVocalVolume => new TranslatableString(getKey(@"karaoke_vocal_volume"), @"Vocal volume");
 
+        /// <summary>
+        /// "8-bit effect"
+        /// </summary>
+        public static LocalisableString EightBitEffectEnabled => new TranslatableString(getKey(@"eight_bit_effect_enabled"), @"8-bit effect");
+
+        /// <summary>
+        /// "Bit depth"
+        /// </summary>
+        public static LocalisableString BitDepth => new TranslatableString(getKey(@"bit_depth"), @"Bit depth");
+
+        /// <summary>
+        /// "Downsample ratio"
+        /// </summary>
+        public static LocalisableString DownsampleRatio => new TranslatableString(getKey(@"downsample_ratio"), @"Downsample ratio");
+
+        /// <summary>
+        /// "VSync (VRR low latency)"
+        /// </summary>
+        public static LocalisableString VSyncVRR => new TranslatableString(getKey(@"vertical_sync_vrr"), "VSync (VRR low latency)");
+
         private static string getKey(string key) => $@"{prefix}:{key}";
     }
 }

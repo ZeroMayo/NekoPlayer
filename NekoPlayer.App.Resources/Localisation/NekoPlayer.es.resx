@@ -905,4 +905,16 @@ Recomendado tener En, apagar sólo si experimenta problemas.</value>
   <data name="karaoke_vocal_volume" xml:space="preserve">
     <value>Volumen vocal</value>
   </data>
+  <data name="eight_bit_effect_enabled" xml:space="preserve">
+    <value>Efecto de 8 bits</value>
+  </data>
+  <data name="bit_depth" xml:space="preserve">
+    <value>Un poco de profundidad</value>
+  </data>
+  <data name="downsample_ratio" xml:space="preserve">
+    <value>Relación de muestra inferior</value>
+  </data>
+  <data name="vertical_sync_vrr" xml:space="preserve">
+    <value>VSync (VRR baja latencia)</value>
+  </data>
 </root>

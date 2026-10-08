@@ -4,7 +4,6 @@
 #nullable disable
 
 using System;
-using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -485,12 +484,17 @@ namespace NekoPlayer.App
         private Bindable<float> chorusMaxSweep = null!;
         private Bindable<float> chorusRate = null!;
 
+        private Bindable<bool> eightBitEffectEnabled = null!;
+        private Bindable<float> eightBitEffectBitDepth = null!;
+        private Bindable<float> eightBitEffectDownsampleRatio = null!;
+
         private ReverbParameters reverbParameters = new ReverbParameters();
         private RotateParameters rotateParameters = new RotateParameters();
         private EchoParameters echoParameters = new EchoParameters();
         private DistortionParameters distortionParameters = new DistortionParameters();
         private ChorusParameters chorusParameters = new ChorusParameters();
         private DSPProcedure _karaokeDsp;
+        private DSPProcedure _eightBitDsp;
 
         private void trackAudioEffects()
         {
@@ -716,6 +720,22 @@ namespace NekoPlayer.App
                     Audio.TrackMixer.UpdateEffect(chorusParameters);
             }, true);
             #endregion
+
+            #region 8-bit Effect
+            eightBitEffectBitDepth = AudioEffectsConfig.GetBindable<float>(AudioEffectsSetting.EightBitEffectBitDepth);
+            eightBitEffectDownsampleRatio = AudioEffectsConfig.GetBindable<float>(AudioEffectsSetting.EightBitEffectDownsampleRatio);
+
+            _eightBitDsp = new DSPProcedure(EightBitDspCallback);
+
+            eightBitEffectEnabled = AudioEffectsConfig.GetBindable<bool>(AudioEffectsSetting.EightBitEffectEnabled);
+            eightBitEffectEnabled.BindValueChanged(enabled =>
+            {
+                if (enabled.NewValue)
+                    Audio.TrackMixer.AddDSP(_eightBitDsp, 1);
+                else
+                    Audio.TrackMixer.RemoveDSP(_eightBitDsp);
+            }, true);
+            #endregion
         }
         #endregion
 
@@ -723,23 +743,72 @@ namespace NekoPlayer.App
 
         private unsafe void KaraokeDsp(int handle, int channel, IntPtr buffer, int length, IntPtr user)
         {
-            int sampleCount = length / 2;
-            short[] samples = new short[sampleCount];
+            int sampleCount = length / sizeof(float);
+            float[] samples = new float[sampleCount];
+
             Marshal.Copy(buffer, samples, 0, sampleCount);
 
             for (int i = 0; i < sampleCount; i += 2)
             {
-                short left = samples[i];
-                short right = samples[i + 1];
+                float left = samples[i];
+                float right = samples[i + 1];
 
                 // 보컬이 제거된 반주 소리 (L-R 연산)
-                short karaokeSample = (short)((left - right) / 2);
+                float karaokeSample = (left - right) * 0.5f;
 
-                // ⚠️ 볼륨 믹싱 로직
-                // VocalVolume이 1.0이면 원본 소리(left/right) 출력
-                // VocalVolume이 0.0이면 보컬 제거 소리(karaokeSample) 출력
-                samples[i] = (short)(left * KaraokeVocalVolume.Value + karaokeSample * (1f - KaraokeVocalVolume.Value));
-                samples[i + 1] = (short)(right * KaraokeVocalVolume.Value + karaokeSample * (1f - KaraokeVocalVolume.Value));
+                // VocalVolume이 1.0이면 원본 소리
+                // VocalVolume이 0.0이면 보컬 제거 소리
+                float vocalVolume = KaraokeVocalVolume.Value;
+                float karaokeVolume = 1.0f - vocalVolume;
+
+                samples[i] =
+                    left * vocalVolume +
+                    karaokeSample * karaokeVolume;
+
+                samples[i + 1] =
+                    right * vocalVolume +
+                    karaokeSample * karaokeVolume;
+            }
+
+            Marshal.Copy(samples, 0, buffer, sampleCount);
+        }
+
+        float bitDepth = 8;
+        float downsampleRatio = 0.25f; // 원본의 1/4 속도로 갱신 = 거친 chiptune 느낌
+
+        float[] held = new float[2];
+        float phase = 0f;
+
+        public unsafe void EightBitDspCallback(int handle, int channel, IntPtr buffer, int length, IntPtr user)
+        {
+            // BASS DSP는 대체로 float PCM 버퍼를 전달합니다.
+            int sampleCount = length / sizeof(float);
+            var samples = new float[sampleCount];
+            Marshal.Copy(buffer, samples, 0, sampleCount);
+
+            const int channels = 2; // 실제 채널 수에 맞게 지정
+            float levels = (1 << (int)eightBitEffectBitDepth.Value) - 1; // 255
+
+            for (int i = 0; i < sampleCount; i += channels)
+            {
+                bool refresh = phase <= 0f;
+
+                for (int ch = 0; ch < channels; ch++)
+                {
+                    if (refresh)
+                    {
+                        float x = Math.Clamp(samples[i + ch], -1f, 1f);
+
+                        // 8-bit quantization: -1..1 → 256 discrete levels
+                        held[ch] = MathF.Round(x * levels) / levels;
+                    }
+
+                    samples[i + ch] = held[ch];
+                }
+
+                phase += downsampleRatio;
+                if (phase >= 1f)
+                    phase -= 1f;
             }
 
             Marshal.Copy(samples, 0, buffer, sampleCount);

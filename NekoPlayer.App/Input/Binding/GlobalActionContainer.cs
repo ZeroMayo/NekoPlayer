@@ -116,6 +116,7 @@ namespace NekoPlayer.App.Input.Binding
             new KeyBinding(new[] { InputKey.Control, InputKey.N }, GlobalAction.Notifications),
 
             new KeyBinding(new[] { InputKey.Control, InputKey.F8 }, GlobalAction.CycleProfileShape),
+            new KeyBinding(new[] { InputKey.Shift, InputKey.F7 }, GlobalAction.ToggleEightBitEffect),
         };
     }
 
@@ -189,5 +190,6 @@ namespace NekoPlayer.App.Input.Binding
         ToggleControlsPinState,
         Notifications,
         CycleProfileShape,
+        ToggleEightBitEffect,
     }
 }

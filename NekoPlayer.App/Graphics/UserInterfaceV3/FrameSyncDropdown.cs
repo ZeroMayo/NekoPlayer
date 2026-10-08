@@ -17,6 +17,9 @@ namespace NekoPlayer.App.Graphics.UserInterfaceV3
                 case FrameSync.VSync:
                     return NekoPlayerStrings.VSync;
 
+                case FrameSync.VSyncVRR:
+                    return NekoPlayerStrings.VSyncVRR;
+
                 case FrameSync.Limit2x:
                     return NekoPlayerStrings.RefreshRate2X;
 
