@@ -820,6 +820,10 @@ namespace NekoPlayer.App.Screens
                     chorusEnabled.Value = !chorusEnabled.Value;
                     return true;
 
+                case GlobalAction.ToggleEightBitEffect:
+                    eightBitEnabled.Value = !eightBitEnabled.Value;
+                    return true;
+
                 case GlobalAction.Notifications:
                     hideOverlays();
 
