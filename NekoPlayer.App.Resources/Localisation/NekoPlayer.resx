@@ -914,4 +914,7 @@ Recommended to have On, turn Off only if experiencing issues.</value>
   <data name="downsample_ratio" xml:space="preserve">
     <value>Downsample ratio</value>
   </data>
+  <data name="vertical_sync" xml:space="preserve">
+    <value>VSync (VRR low latency)</value>
+  </data>
 </root>

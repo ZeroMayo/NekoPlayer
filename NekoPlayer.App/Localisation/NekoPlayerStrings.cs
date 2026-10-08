@@ -1432,6 +1432,11 @@ namespace NekoPlayer.App.Localisation
         /// </summary>
         public static LocalisableString DownsampleRatio => new TranslatableString(getKey(@"downsample_ratio"), @"Downsample ratio");
 
+        /// <summary>
+        /// "VSync (VRR low latency)"
+        /// </summary>
+        public static LocalisableString VSyncVRR => new TranslatableString(getKey(@"vertical_sync_vrr"), "VSync (VRR low latency)");
+
         private static string getKey(string key) => $@"{prefix}:{key}";
     }
 }

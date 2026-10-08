@@ -914,4 +914,7 @@
   <data name="downsample_ratio" xml:space="preserve">
     <value>다운샘플링 비율</value>
   </data>
+  <data name="vertical_sync" xml:space="preserve">
+    <value>수직 동기화 (VRR 저지연)</value>
+  </data>
 </root>
