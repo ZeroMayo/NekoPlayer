@@ -4,7 +4,6 @@
 #nullable disable
 
 using System;
-using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -45,7 +44,6 @@ using osu.Framework.Logging;
 using osu.Framework.Platform;
 using osuTK.Graphics;
 using YoutubeExplode;
-using NekoPlayer.App.Audio.Effects;
 
 namespace NekoPlayer.App
 {
